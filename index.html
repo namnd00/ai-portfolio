@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nam Nguyen | AI Engineer & Team Lead</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">Nam Nguyen</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container">
+            <h1>Nguyen Duy Nam</h1>
+            <h2>AI Team Lead & Solution Architect</h2>
+            <p>Building scalable AI solutions with expertise in NLP, Computer Vision, and MLOps</p>
+            <div class="cta-buttons">
+                <a href="#projects" class="btn primary">View Projects</a>
+                <a href="#contact" class="btn secondary">Contact Me</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="assets/img/profile.jpg" alt="Nam Nguyen">
+                </div>
+                <div class="about-text">
+                    <p>I am an experienced AI Team Lead with 4 years in AI production and delivery, specializing in mentoring junior engineers and building scalable ML solutions. With expertise in NLP, Computer Vision, and MLOps, I excel at aligning technical innovation with business objectives and delivering high-impact, commercially viable AI applications.</p>
+                    <p>Currently working at FPT Software Quy Nhon, where I've led multiple AI teams of 4-12 engineers, established technical standards, conducted regular code reviews, and mentored junior engineers to improve team capabilities.</p>
+                    <div class="about-links">
+                        <a href="https://linkedin.com/in/namnd00" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                        <a href="https://github.com/namnd00" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                        <a href="https://www.kaggle.com/namndios" target="_blank"><i class="fab fa-kaggle"></i> Kaggle</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2 class="section-title">Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">Jul 2021 - Present</div>
+                    <div class="timeline-content">
+                        <h3>Machine Learning Engineer</h3>
+                        <h4>FPT Software, Quy Nhon City</h4>
+                        <ul>
+                            <li>Led multiple AI teams of 4-12 engineers, establishing technical standards and mentoring junior engineers</li>
+                            <li>Collaborated with clients to translate business requirements into technical specifications</li>
+                            <li>Established architecture standards for AI projects and implemented MLOps best practices</li>
+                            <li>Increased team productivity by 30%, reduced deployment time by 60%</li>
+                            <li>Successfully delivered 5+ commercial AI solutions</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Mar 2020 - Aug 2020</div>
+                    <div class="timeline-content">
+                        <h3>Data Analyst Intern</h3>
+                        <h4>SNAP Research Labs, Ho Chi Minh City</h4>
+                        <ul>
+                            <li>Gathered and annotated time-series data for stock chart analysis</li>
+                            <li>Developed Python-based data crawling pipelines for multi-market ingestion</li>
+                            <li>Enhanced data reliability through secure storage and anonymization</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <div class="project-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="computer-vision">Computer Vision</button>
+                <button class="filter-btn" data-filter="nlp">NLP</button>
+                <button class="filter-btn" data-filter="mlops">MLOps</button>
+                <button class="filter-btn" data-filter="generative-ai">Generative AI</button>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card" data-categories="computer-vision generative-ai">
+                    <div class="project-img">
+                        <img src="assets/img/project1.jpg" alt="AI Solutions for Smart Driving Cars">
+                    </div>
+                    <div class="project-content">
+                        <h3>AI Solutions for Smart Driving Cars</h3>
+                        <p>Enterprise-Grade Collision Forecasting System on Edge Devices</p>
+                        <div class="project-tech">
+                            <span>PyTorch</span>
+                            <span>Computer Vision</span>
+                            <span>Edge Computing</span>
+                            <span>Diffusion Models</span>
+                        </div>
+                        <a href="#" class="btn project-btn" data-id="project1">View Details</a>
+                    </div>
+                </div>
+                <div class="project-card" data-categories="nlp mlops">
+                    <div class="project-img">
+                        <img src="assets/img/project2.jpg" alt="NLP on Call Center Services">
+                    </div>
+                    <div class="project-content">
+                        <h3>NLP on Call Center Services</h3>
+                        <p>Speech-to-Text, Voicemail Classification, MLOps Implementation</p>
+                        <div class="project-tech">
+                            <span>RoBERTa</span>
+                            <span>Kubeflow</span>
+                            <span>AWS</span>
+                            <span>NLP</span>
+                        </div>
+                        <a href="#" class="btn project-btn" data-id="project2">View Details</a>
+                    </div>
+                </div>
+                <div class="project-card" data-categories="nlp">
+                    <div class="project-img">
+                        <img src="assets/img/project3.jpg" alt="Malay Speech Recognition">
+                    </div>
+                    <div class="project-content">
+                        <h3>Malay Speech Recognition</h3>
+                        <p>Multilingual ASR System Development</p>
+                        <div class="project-tech">
+                            <span>Wav2vec2</span>
+                            <span>Hugging Face</span>
+                            <span>TensorRT</span>
+                            <span>Speech Processing</span>
+                        </div>
+                        <a href="#" class="btn project-btn" data-id="project3">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Modals -->
+    <div class="modal" id="project1-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>AI Solutions for Smart Driving Cars</h2>
+            <div class="modal-details">
+                <div class="modal-info">
+                    <p><strong>Duration:</strong> Nov 2023 - Present</p>
+                    <p><strong>Role:</strong> AI Team Lead & Solution Architect</p>
+                    <p><strong>Team Size:</strong> 8 AI Engineers</p>
+                </div>
+                <div class="modal-description">
+                    <h3>Project Overview</h3>
+                    <p>Enterprise-Grade Collision Forecasting System deployed on Edge Devices (NVIDIA Jetson Orin). Led development of multi-modal collision forecasting system integrating sensor metadata, video, and biometric data.</p>
+                    
+                    <h3>Leadership Responsibilities</h3>
+                    <ul>
+                        <li>Directed an 8-person AI engineering team, establishing architectural vision and bi-weekly code reviews</li>
+                        <li>Mentored team through structured knowledge transfer sessions in advanced computer vision techniques</li>
+                        <li>Collaborated with cross-functional teams and stakeholders to refine algorithms</li>
+                        <li>Served as primary technical liaison with clients</li>
+                        <li>Co-authored proposals securing 5 additional project opportunities</li>
+                    </ul>
+                    
+                    <h3>Technical Contributions</h3>
+                    <ul>
+                        <li>Developed multi-modal collision forecasting system achieving 85% prediction accuracy</li>
+                        <li>Researched self-supervised learning and built auto-labeling tools improving efficiency by 86%</li>
+                        <li>Optimized inference for edge deployment, reducing latency from 300ms to 80ms</li>
+                        <li>Implemented AutoHAS algorithm reducing model parameters by 30%</li>
+                        <li>Applied LoRA for efficient online model retraining</li>
+                        <li>Created privacy-compliant computer vision models</li>
+                        <li>Developed generative video transformation pipeline using transformers</li>
+                    </ul>
+                    
+                    <h3>Technologies Used</h3>
+                    <div class="tech-tags">
+                        <span>Python</span>
+                        <span>PyTorch</span>
+                        <span>Transformers</span>
+                        <span>NVIDIA Jetson Orin</span>
+                        <span>Computer Vision</span>
+                        <span>MLOps</span>
+                        <span>Diffusion Models</span>
+                        <span>Edge Computing</span>
+                        <span>AutoHAS</span>
+                        <span>LoRA</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>AI Development</h3>
+                    <ul>
+                        <li>Python</li>
+                        <li>PyTorch</li>
+                        <li>TensorFlow</li>
+                        <li>Computer Vision</li>
+                        <li>NLP</li>
+                        <li>Speech Processing</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Generative AI</h3>
+                    <ul>
+                        <li>Transformer Models</li>
+                        <li>Diffusion Models</li>
+                        <li>Fine-tuning LLMs</li>
+                        <li>GANs</li>
+                        <li>DALL·E 3</li>
+                        <li>Claude Sonnet</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>MLOps & Deployment</h3>
+                    <ul>
+                        <li>Kubernetes</li>
+                        <li>Kubeflow</li>
+                        <li>MLflow</li>
+                        <li>Docker</li>
+                        <li>AWS (EKS, S3)</li>
+                        <li>Edge Deployment</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Leadership</h3>
+                    <ul>
+                        <li>Team Management</li>
+                        <li>Technical Mentorship</li>
+                        <li>Client Collaboration</li>
+                        <li>Project Planning</li>
+                        <li>Agile Leadership</li>
+                        <li>Innovation Management</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Me</h2>
+            <div class="contact-info">
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>nam.nd.00@gmail.com</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <p>+84.85.7766.776</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        <p><a href="https://linkedin.com/in/namnd00" target="_blank">linkedin.com/in/namnd00</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-github"></i>
+                        <p><a href="https://github.com/namnd00" target="_blank">github.com/namnd00</a></p>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Nguyen Duy Nam. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://linkedin.com/in/namnd00" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/namnd00" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.kaggle.com/namndios" target="_blank"><i class="fab fa-kaggle"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html> 
