@@ -63,17 +63,15 @@ function addAnimationClasses() {
         el.style.animationDelay = `${index * 200}ms`;
     });
     
-    // Add bounce animation to some elements
+    // Simplified button hover effect
     document.querySelectorAll('.btn').forEach(el => {
         el.addEventListener('mouseenter', () => {
-            // Remove pulse class to prevent animation conflicts
-            el.classList.remove('pulse');
-            // Add a simpler hover effect
-            el.classList.add('btn-hover');
+            // Simple shadow effect, no animations that could affect text
+            el.style.boxShadow = '0 5px 15px rgba(26, 188, 156, 0.4)';
         });
         el.addEventListener('mouseleave', () => {
-            // Remove hover effect
-            el.classList.remove('btn-hover');
+            // Reset shadow
+            el.style.boxShadow = '';
         });
     });
 }
