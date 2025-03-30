@@ -1,16 +1,18 @@
 # AI Engineer & Team Lead Portfolio
 
-A responsive, modern portfolio website showcasing my experience as an AI Engineer and Team Lead, built with HTML, CSS, and JavaScript.
+A responsive, modern portfolio website showcasing my experience as an AI Engineer and Team Lead, built with HTML, CSS, and JavaScript. The design is inspired by [Ameno Technologies](https://ameno.tech), featuring a clean, minimal aesthetic with geometric accents.
 
 ## Features
 
-- Responsive design for all device sizes
+- Minimalist design with geometric shapes and clean typography
+- Dark/light contrasting sections
 - Project filtering by technology/domain
-- Interactive project modals with detailed information
-- Skills categorization
-- Contact form
+- Interactive project cards with hover effects
+- Skills categorization in clean card layout
+- Contact form with modern styling
 - Timeline-based experience section
 - Mobile-friendly navigation
+- Subtle animations and transitions
 
 ## Technologies Used
 
@@ -19,7 +21,7 @@ A responsive, modern portfolio website showcasing my experience as an AI Enginee
 - JavaScript (ES6+)
 - Font Awesome Icons
 - Google Fonts
-- Responsive Design
+- Modern CSS variables and animations
 
 ## Setup
 
@@ -46,11 +48,20 @@ ai-portfolio/
 │   │   └── script.js         # JavaScript functionality
 │   └── img/                  # Images for portfolio
 │       ├── profile.jpg       # Profile picture
-│       ├── hero-bg.jpg       # Hero background
 │       ├── project1.jpg      # Project thumbnails
 │       └── ...
 └── README.md                 # This file
 ```
+
+## Design Inspiration
+
+The design is inspired by [Ameno Technologies](https://ameno.tech) with:
+- Minimal, clean aesthetic
+- Strong typography hierarchy
+- Geometric shape accents
+- Strategic use of whitespace
+- Subtle animations and transitions
+- Modern sectioning and layout
 
 ## Customization
 
@@ -58,7 +69,8 @@ To customize this portfolio:
 
 1. Replace images in the `assets/img/` directory with your own
 2. Edit the content in `index.html` to reflect your experience and projects
-3. Adjust colors and styling in `assets/css/styles.css`
+3. Adjust colors in `:root` variables in `assets/css/styles.css`
+4. Modify the geometric shapes to suit your style
 
 ## License
 

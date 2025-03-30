@@ -1,19 +1,31 @@
 // Navigation toggle for mobile
 const hamburger = document.querySelector('.hamburger');
-const navLinks = document.querySelector('.nav-links');
-const navLinksItems = document.querySelectorAll('.nav-links li');
+const navMenu = document.querySelector('.nav-menu');
+const navLinks = document.querySelectorAll('.nav-link');
 
 hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('active');
-    navLinks.classList.toggle('active');
+    navMenu.classList.toggle('active');
+    document.body.classList.toggle('no-scroll');
 });
 
 // Close mobile menu when clicking on a nav link
-navLinksItems.forEach(item => {
-    item.addEventListener('click', () => {
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
         hamburger.classList.remove('active');
-        navLinks.classList.remove('active');
+        navMenu.classList.remove('active');
+        document.body.classList.remove('no-scroll');
     });
+});
+
+// Header scroll effect
+const header = document.querySelector('header');
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+    } else {
+        header.classList.remove('scrolled');
+    }
 });
 
 // Smooth scrolling for anchor links
@@ -26,8 +38,9 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         
         const targetElement = document.querySelector(targetId);
         if (targetElement) {
+            const headerHeight = document.querySelector('header').offsetHeight;
             window.scrollTo({
-                top: targetElement.offsetTop - 70,
+                top: targetElement.offsetTop - headerHeight,
                 behavior: 'smooth'
             });
         }
@@ -47,52 +60,41 @@ filterButtons.forEach(button => {
         const filterValue = button.getAttribute('data-filter');
         
         projectCards.forEach(card => {
-            if (filterValue === 'all') {
-                card.style.display = 'block';
-            } else {
-                const categories = card.getAttribute('data-categories').split(' ');
-                if (categories.includes(filterValue)) {
+            card.classList.remove('fade-in');
+            
+            setTimeout(() => {
+                if (filterValue === 'all') {
                     card.style.display = 'block';
+                    setTimeout(() => {
+                        card.classList.add('fade-in');
+                    }, 10);
                 } else {
-                    card.style.display = 'none';
+                    const categories = card.getAttribute('data-categories').split(' ');
+                    if (categories.includes(filterValue)) {
+                        card.style.display = 'block';
+                        setTimeout(() => {
+                            card.classList.add('fade-in');
+                        }, 10);
+                    } else {
+                        card.style.display = 'none';
+                    }
                 }
-            }
+            }, 300);
         });
     });
 });
 
-// Project modals
-const projectButtons = document.querySelectorAll('.project-btn');
-const modals = document.querySelectorAll('.modal');
-const closeButtons = document.querySelectorAll('.close-modal');
+// Project modal handling
+const projectLinks = document.querySelectorAll('.project-link');
 
-projectButtons.forEach(button => {
-    button.addEventListener('click', (e) => {
+projectLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
         e.preventDefault();
-        const modalId = `${button.getAttribute('data-id')}-modal`;
-        const modal = document.getElementById(modalId);
-        if (modal) {
-            modal.style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        }
-    });
-});
-
-closeButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        const modal = button.closest('.modal');
-        modal.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    });
-});
-
-// Close modal when clicking outside of content
-window.addEventListener('click', (e) => {
-    modals.forEach(modal => {
-        if (e.target === modal) {
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
+        const projectId = link.getAttribute('data-project');
+        
+        // Here you would normally open a modal or navigate to a project detail page
+        // For now, we'll just show an alert
+        alert(`Project details for ${projectId} will be displayed in a modal or separate page.`);
     });
 });
 
@@ -121,35 +123,66 @@ if (contactForm) {
     });
 }
 
-// Add scroll animation for elements
-const scrollElements = document.querySelectorAll('.timeline-item, .project-card, .skill-category');
-
-const elementInView = (el, percentageScroll = 100) => {
-    const elementTop = el.getBoundingClientRect().top;
-    return (
-        elementTop <= (window.innerHeight || document.documentElement.clientHeight) * (percentageScroll / 100)
-    );
-};
-
-const displayScrollElement = (element) => {
-    element.classList.add('scrolled');
-};
-
-const hideScrollElement = (element) => {
-    element.classList.remove('scrolled');
-};
-
-const handleScrollAnimation = () => {
-    scrollElements.forEach((el) => {
-        if (elementInView(el, 80)) {
-            displayScrollElement(el);
-        } else {
-            hideScrollElement(el);
+// Animation on scroll
+const animateOnScroll = () => {
+    const elements = document.querySelectorAll('.section-title, .timeline-item, .project-card, .skills-category, .award-card, .social-link');
+    
+    elements.forEach(element => {
+        const elementPosition = element.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.2;
+        
+        if (elementPosition < screenPosition) {
+            element.classList.add('fade-in');
         }
     });
 };
 
-// Initialize scroll animation
-window.addEventListener('scroll', () => {
-    handleScrollAnimation();
-}); 
+// Initialize animations
+window.addEventListener('load', () => {
+    // Add initial animations for elements already in view
+    animateOnScroll();
+    
+    // Initialize project cards with fade-in
+    projectCards.forEach(card => {
+        card.classList.add('fade-in');
+    });
+});
+
+// Listen for scroll events
+window.addEventListener('scroll', animateOnScroll);
+
+// Add geometric shapes dynamically (optional)
+const addShapes = () => {
+    const sections = document.querySelectorAll('section');
+    
+    sections.forEach(section => {
+        // Check if section already has shapes
+        const existingShapes = section.querySelectorAll('.shape');
+        if (existingShapes.length > 0) return;
+        
+        // Create circle shape
+        const circle = document.createElement('div');
+        circle.classList.add('shape', 'shape-circle');
+        
+        // Create rectangle shape
+        const rectangle = document.createElement('div');
+        rectangle.classList.add('shape', 'shape-rectangle');
+        
+        // Add shapes to section
+        section.appendChild(circle);
+        section.appendChild(rectangle);
+        
+        // Position shapes randomly within constraints
+        const randomPosition = () => {
+            circle.style.top = `${Math.random() * 80 - 40}%`;
+            circle.style.right = `${Math.random() * 50 - 25}%`;
+            circle.style.transform = `scale(${0.5 + Math.random() * 0.5})`;
+            
+            rectangle.style.bottom = `${Math.random() * 80 - 40}%`;
+            rectangle.style.left = `${Math.random() * 50 - 25}%`;
+            rectangle.style.transform = `rotate(${Math.random() * 60 - 30}deg) scale(${0.5 + Math.random() * 0.5})`;
+        };
+        
+        randomPosition();
+    });
+}; 
