@@ -23,6 +23,9 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Initialize custom cursor
     initCustomCursor();
+    
+    // Initialize AI animation
+    initAIAnimation();
 });
 
 // Add animation classes to various elements
@@ -247,4 +250,72 @@ function initCustomCursor() {
         cursorDot.style.opacity = '1';
         cursorOutline.style.opacity = '1';
     });
+}
+
+// Add special effects to AI animation
+function initAIAnimation() {
+    const aiAnimation = document.querySelector('.ai-animation');
+    if (!aiAnimation) return;
+    
+    // Add mouse interaction to AI animation
+    aiAnimation.addEventListener('mousemove', (e) => {
+        const { left, top, width, height } = aiAnimation.getBoundingClientRect();
+        const x = (e.clientX - left) / width - 0.5;
+        const y = (e.clientY - top) / height - 0.5;
+        
+        // Get all neurons and move them slightly based on cursor position
+        const neurons = document.querySelectorAll('.neuron');
+        neurons.forEach(neuron => {
+            const randomFactor = Math.random() * 10;
+            neuron.style.transform = `translate(${x * randomFactor}px, ${y * randomFactor}px)`;
+        });
+        
+        // Rotate connections slightly based on cursor position
+        const connections = document.querySelectorAll('.connection');
+        connections.forEach(connection => {
+            const currentRotation = connection.style.transform.match(/rotate\(([^)]+)\)/);
+            const baseRotation = currentRotation ? parseFloat(currentRotation[1]) : 0;
+            const newRotation = baseRotation + x * 10;
+            
+            // Update the rotation part of the transform
+            connection.style.transform = connection.style.transform.replace(
+                /rotate\([^)]+\)/, 
+                `rotate(${newRotation}deg)`
+            );
+        });
+        
+        // Move the AI text with parallax effect
+        const aiText = document.querySelector('.ai-text');
+        if (aiText) {
+            aiText.style.transform = `translate(${x * -20}px, ${y * -20}px)`;
+        }
+    });
+    
+    // Create new connections periodically
+    setInterval(() => {
+        const container = document.querySelector('.brain-container');
+        if (!container) return;
+        
+        // Create a new pulse
+        const pulse = document.createElement('div');
+        pulse.className = 'pulse';
+        
+        // Random position
+        const top = 20 + Math.random() * 60; // Between 20% and 80%
+        const left = 20 + Math.random() * 30; // Between 20% and 50%
+        
+        pulse.style.top = `${top}%`;
+        pulse.style.left = `${left}%`;
+        
+        // Random animation duration between 3s and 5s
+        const duration = 3 + Math.random() * 2;
+        pulse.style.animation = `movePulse ${duration}s infinite linear, pulseFade ${duration}s infinite`;
+        
+        container.appendChild(pulse);
+        
+        // Remove after animation cycle to prevent too many elements
+        setTimeout(() => {
+            pulse.remove();
+        }, duration * 1000);
+    }, 3000); // Create new pulse every 3 seconds
 } 
