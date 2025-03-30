@@ -15,8 +15,14 @@
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress-container">
+        <div class="scroll-progress-bar"></div>
+    </div>
+
     <!-- Custom Cursor -->
     <div class="cursor-dot"></div>
     <div class="cursor-outline"></div>
@@ -245,59 +251,121 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
+    <!-- Work Process Section -->
+    <section id="process" class="work-process">
         <div class="shape shape-circle"></div>
         <div class="shape shape-rectangle"></div>
         <div class="container">
             <div class="section-title">
+                <span class="small-title">My Approach</span>
+                <h2>AI Development Process</h2>
+            </div>
+            
+            <div class="process-container">
+                <div class="process-steps">
+                    <div class="step-connector"></div>
+                    
+                    <div class="process-step animate" data-delay="0">
+                        <div class="step-number"><i class="fas fa-search"></i></div>
+                        <h3 class="step-title">Problem Definition</h3>
+                        <p class="step-description">Thoroughly understand the business requirements and define clear success metrics with stakeholders.</p>
+                    </div>
+                    
+                    <div class="process-step animate" data-delay="200">
+                        <div class="step-number"><i class="fas fa-database"></i></div>
+                        <h3 class="step-title">Data Engineering</h3>
+                        <p class="step-description">Collect, clean, and prepare high-quality datasets. Implement robust data pipelines to ensure consistent flow.</p>
+                    </div>
+                    
+                    <div class="process-step animate" data-delay="400">
+                        <div class="step-number"><i class="fas fa-brain"></i></div>
+                        <h3 class="step-title">Model Development</h3>
+                        <p class="step-description">Design and experiment with various model architectures to find the optimal solution for the problem.</p>
+                    </div>
+                    
+                    <div class="process-step animate" data-delay="600">
+                        <div class="step-number"><i class="fas fa-cogs"></i></div>
+                        <h3 class="step-title">MLOps Implementation</h3>
+                        <p class="step-description">Build robust CI/CD pipelines, monitoring systems, and deployment strategies for production-ready AI.</p>
+                    </div>
+                    
+                    <div class="process-step animate" data-delay="800">
+                        <div class="step-number"><i class="fas fa-rocket"></i></div>
+                        <h3 class="step-title">Continuous Improvement</h3>
+                        <p class="step-description">Measure performance, gather feedback, and iteratively enhance the solution to deliver ongoing value.</p>
+                    </div>
+                </div>
+                
+                <div class="process-details animate fade-in">
+                    <h3 class="process-heading">End-to-End AI Solutions</h3>
+                    <p class="process-text">My methodology integrates technical excellence with business value. I focus on creating AI solutions that not only achieve high technical performance but also deliver tangible business outcomes. This approach ensures that projects remain aligned with organizational goals while pushing the boundaries of what's possible with AI.</p>
+                    <a href="#contact" class="btn btn-solid">Discuss Your Project</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section section-skills">
+        <div class="container">
+            <div class="section-title">
                 <span class="small-title">My Expertise</span>
                 <h2>Technical Skills</h2>
+                <p class="section-description">Specialized in AI Solutions with a focus on practical implementation and team leadership</p>
             </div>
-            <div class="skills-categories">
-                <div class="skills-category">
-                    <h3 class="category-title">AI Development</h3>
-                    <ul class="skill-list">
-                        <li class="skill-item"><i class="fas fa-check skill-icon"></i> Python</li>
-                        <li class="skill-item"><i class="fas fa-check skill-icon"></i> PyTorch</li>
-                        <li class="skill-item"><i class="fas fa-check skill-icon"></i> TensorFlow</li>
-                        <li class="skill-item"><i class="fas fa-check skill-icon"></i> Computer Vision</li>
-                        <li class="skill-item"><i class="fas fa-check skill-icon"></i> NLP</li>
-                        <li class="skill-item"><i class="fas fa-check skill-icon"></i> Speech Processing</li>
-                    </ul>
+
+            <div class="skills-container">
+                <div class="skills-chart-container">
+                    <h3 class="skills-chart-title">Core Competencies</h3>
+                    <div class="skills-chart">
+                        <canvas id="skillsRadarChart"></canvas>
+                    </div>
                 </div>
-                <div class="skills-category">
-                    <h3 class="category-title">Generative AI</h3>
-                    <ul class="skill-list">
-                        <li class="skill-item"><i class="fas fa-check skill-icon"></i> Transformer Models</li>
-                        <li class="skill-item"><i class="fas fa-check skill-icon"></i> Diffusion Models</li>
-                        <li class="skill-item"><i class="fas fa-check skill-icon"></i> Fine-tuning LLMs</li>
-                        <li class="skill-item"><i class="fas fa-check skill-icon"></i> GANs</li>
-                        <li class="skill-item"><i class="fas fa-check skill-icon"></i> DALL·E 3</li>
-                        <li class="skill-item"><i class="fas fa-check skill-icon"></i> Claude Sonnet</li>
-                    </ul>
-                </div>
-                <div class="skills-category">
-                    <h3 class="category-title">MLOps & Deployment</h3>
-                    <ul class="skill-list">
-                        <li class="skill-item"><i class="fas fa-check skill-icon"></i> Kubernetes</li>
-                        <li class="skill-item"><i class="fas fa-check skill-icon"></i> Kubeflow</li>
-                        <li class="skill-item"><i class="fas fa-check skill-icon"></i> MLflow</li>
-                        <li class="skill-item"><i class="fas fa-check skill-icon"></i> Docker</li>
-                        <li class="skill-item"><i class="fas fa-check skill-icon"></i> AWS (EKS, S3)</li>
-                        <li class="skill-item"><i class="fas fa-check skill-icon"></i> Edge Deployment</li>
-                    </ul>
-                </div>
-                <div class="skills-category">
-                    <h3 class="category-title">Leadership</h3>
-                    <ul class="skill-list">
-                        <li class="skill-item"><i class="fas fa-check skill-icon"></i> Team Management</li>
-                        <li class="skill-item"><i class="fas fa-check skill-icon"></i> Technical Mentorship</li>
-                        <li class="skill-item"><i class="fas fa-check skill-icon"></i> Client Collaboration</li>
-                        <li class="skill-item"><i class="fas fa-check skill-icon"></i> Project Planning</li>
-                        <li class="skill-item"><i class="fas fa-check skill-icon"></i> Agile Leadership</li>
-                        <li class="skill-item"><i class="fas fa-check skill-icon"></i> Innovation Management</li>
-                    </ul>
+
+                <div class="skills-categories">
+                    <div class="skill-category">
+                        <h3>AI Development</h3>
+                        <ul class="skills-list">
+                            <li><i class="fas fa-check-circle"></i> Natural Language Processing</li>
+                            <li><i class="fas fa-check-circle"></i> Computer Vision</li>
+                            <li><i class="fas fa-check-circle"></i> Machine Learning</li>
+                            <li><i class="fas fa-check-circle"></i> Deep Learning</li>
+                            <li><i class="fas fa-check-circle"></i> Transfer Learning</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>Generative AI</h3>
+                        <ul class="skills-list">
+                            <li><i class="fas fa-check-circle"></i> Transformer Architecture</li>
+                            <li><i class="fas fa-check-circle"></i> LLM Fine-tuning</li>
+                            <li><i class="fas fa-check-circle"></i> Low-Rank Adaptation (LoRA)</li>
+                            <li><i class="fas fa-check-circle"></i> OpenAI API Integration</li>
+                            <li><i class="fas fa-check-circle"></i> RAG Applications</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>MLOps & Deployment</h3>
+                        <ul class="skills-list">
+                            <li><i class="fas fa-check-circle"></i> Docker & Kubernetes</li>
+                            <li><i class="fas fa-check-circle"></i> CI/CD Pipelines</li>
+                            <li><i class="fas fa-check-circle"></i> AWS/Azure/GCP</li>
+                            <li><i class="fas fa-check-circle"></i> Model Monitoring</li>
+                            <li><i class="fas fa-check-circle"></i> API Development</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>Leadership</h3>
+                        <ul class="skills-list">
+                            <li><i class="fas fa-check-circle"></i> Team Management</li>
+                            <li><i class="fas fa-check-circle"></i> Agile Methodologies</li>
+                            <li><i class="fas fa-check-circle"></i> Technical Mentorship</li>
+                            <li><i class="fas fa-check-circle"></i> Project Planning</li>
+                            <li><i class="fas fa-check-circle"></i> Stakeholder Communication</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -428,8 +496,22 @@
         </div>
     </footer>
 
-    <!-- Scripts -->
-    <script src="assets/js/script.js"></script>
+    <!-- Floating Navigation -->
+    <nav class="floating-nav">
+        <ul class="floating-nav-list">
+            <li><a href="#about" class="floating-nav-link" title="About"><i class="fas fa-user"></i></a></li>
+            <li><a href="#experience" class="floating-nav-link" title="Experience"><i class="fas fa-briefcase"></i></a></li>
+            <li><a href="#projects" class="floating-nav-link" title="Projects"><i class="fas fa-code"></i></a></li>
+            <li><a href="#process" class="floating-nav-link" title="Process"><i class="fas fa-sitemap"></i></a></li>
+            <li><a href="#skills" class="floating-nav-link" title="Skills"><i class="fas fa-cogs"></i></a></li>
+            <li><a href="#contact" class="floating-nav-link" title="Contact"><i class="fas fa-envelope"></i></a></li>
+        </ul>
+    </nav>
+
+    <!-- JavaScript Files -->
     <script src="assets/js/animations.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/skills-chart.js"></script>
+    <script src="assets/js/main.js"></script>
 </body>
 </html> 

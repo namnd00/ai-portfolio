@@ -26,6 +26,12 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Initialize AI animation
     initAIAnimation();
+    
+    // Initialize scroll progress indicator
+    initScrollProgressIndicator();
+    
+    // Initialize floating navigation
+    initFloatingNav();
 });
 
 // Add animation classes to various elements
@@ -61,6 +67,13 @@ function addAnimationClasses() {
     document.querySelectorAll('.award-card').forEach((el, index) => {
         el.classList.add('animate', 'fade-in-left');
         el.style.animationDelay = `${index * 200}ms`;
+    });
+    
+    // Add animations to process steps
+    document.querySelectorAll('.process-step').forEach((el, index) => {
+        el.classList.add('animate', 'fade-in');
+        const delay = el.getAttribute('data-delay') || index * 150;
+        el.style.animationDelay = `${delay}ms`;
     });
     
     // Simplified button hover effect
@@ -320,4 +333,76 @@ function initAIAnimation() {
             pulse.remove();
         }, duration * 1000);
     }, 3000); // Create new pulse every 3 seconds
+}
+
+// Initialize scroll progress indicator
+function initScrollProgressIndicator() {
+    const progressBar = document.querySelector('.scroll-progress-bar');
+    
+    // Update progress bar width based on scroll position
+    window.addEventListener('scroll', () => {
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrollPercentage = (scrollTop / scrollHeight) * 100;
+        
+        progressBar.style.width = scrollPercentage + '%';
+    });
+}
+
+// Initialize floating navigation
+function initFloatingNav() {
+    const floatingNav = document.querySelector('.floating-nav');
+    const navLinks = document.querySelectorAll('.floating-nav-link');
+    const sections = document.querySelectorAll('section[id]');
+    
+    // Show floating nav after scrolling past hero section
+    window.addEventListener('scroll', () => {
+        const scrollPosition = window.scrollY;
+        const heroHeight = document.querySelector('.hero').offsetHeight - 100;
+        
+        if (scrollPosition > heroHeight) {
+            floatingNav.classList.add('visible');
+        } else {
+            floatingNav.classList.remove('visible');
+        }
+        
+        // Highlight active section in floating nav
+        let currentSectionId = '';
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 100;
+            const sectionHeight = section.offsetHeight;
+            
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                currentSectionId = section.getAttribute('id');
+            }
+        });
+        
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${currentSectionId}`) {
+                link.classList.add('active');
+            }
+        });
+    });
+    
+    // Smooth scrolling for floating nav links
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            const targetId = link.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                const headerHeight = document.querySelector('header').offsetHeight;
+                const targetPosition = targetElement.offsetTop - headerHeight;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
 } 
