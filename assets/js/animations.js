@@ -66,10 +66,14 @@ function addAnimationClasses() {
     // Add bounce animation to some elements
     document.querySelectorAll('.btn').forEach(el => {
         el.addEventListener('mouseenter', () => {
-            el.classList.add('pulse');
+            // Remove pulse class to prevent animation conflicts
+            el.classList.remove('pulse');
+            // Add a simpler hover effect
+            el.classList.add('btn-hover');
         });
         el.addEventListener('mouseleave', () => {
-            el.classList.remove('pulse');
+            // Remove hover effect
+            el.classList.remove('btn-hover');
         });
     });
 }
