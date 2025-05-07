@@ -1,6 +1,6 @@
 # AI Engineer & Team Lead Portfolio
 
-A responsive, modern portfolio website showcasing my experience as an AI Engineer and Team Lead, built with HTML, CSS, and JavaScript. The design is inspired by [Ameno Technologies](https://ameno.tech), featuring a clean, minimal aesthetic with geometric accents.
+A responsive, modern portfolio website showcasing my experience as an AI Engineer and Team Lead, built with HTML, CSS, and JavaScript.
 
 ## Features
 
@@ -55,7 +55,6 @@ ai-portfolio/
 
 ## Design Inspiration
 
-The design is inspired by [Ameno Technologies](https://ameno.tech) with:
 - Minimal, clean aesthetic
 - Strong typography hierarchy
 - Geometric shape accents
