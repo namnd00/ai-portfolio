@@ -84,20 +84,6 @@ filterButtons.forEach(button => {
     });
 });
 
-// Project modal handling
-const projectLinks = document.querySelectorAll('.project-link');
-
-projectLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const projectId = link.getAttribute('data-project');
-        
-        // Here you would normally open a modal or navigate to a project detail page
-        // For now, we'll just show an alert
-        alert(`Project details for ${projectId} will be displayed in a modal or separate page.`);
-    });
-});
-
 // Form submission handling
 const contactForm = document.getElementById('contact-form');
 if (contactForm) {

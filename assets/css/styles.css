@@ -647,99 +647,122 @@ header.scrolled {
 /* SKILLS */
 .skills {
     position: relative;
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
 }
 
 .skills-container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    margin-top: 2rem;
+    grid-template-columns: 400px 1fr;
+    gap: 4rem;
+    margin-top: 3rem;
+    align-items: start;
 }
 
 .skills-chart-container {
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: var(--radius);
-    padding: 2rem;
-    box-shadow: var(--shadow);
+    background: linear-gradient(135deg, rgba(26, 188, 156, 0.05) 0%, rgba(52, 152, 219, 0.05) 100%);
+    border-radius: var(--radius-lg);
+    padding: 2.5rem;
+    box-shadow: var(--shadow-md);
     display: flex;
     flex-direction: column;
     align-items: center;
-    transition: all 0.3s ease;
+    transition: var(--transition);
+    border: 2px solid rgba(26, 188, 156, 0.1);
+    position: sticky;
+    top: 100px;
 }
 
 .skills-chart-container:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(26, 188, 156, 0.3);
 }
 
 .skills-chart-title {
     margin-bottom: 1.5rem;
     color: var(--primary-color);
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     text-align: center;
+    font-weight: 600;
 }
 
 .skills-chart {
     width: 100%;
-    max-width: 400px;
-    height: 400px;
+    max-width: 350px;
+    height: 350px;
     position: relative;
 }
 
 .skills-categories {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
 }
 
 .skills-category {
-    background-color: rgba(255, 255, 255, 0.8);
+    background: white;
     border-radius: var(--radius);
-    padding: 1.5rem;
-    box-shadow: var(--shadow);
-    transition: all 0.3s ease;
+    padding: 2rem;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    border-left: 4px solid var(--secondary-color);
 }
 
 .skill-category:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transform: translateX(5px);
+    box-shadow: var(--shadow-md);
+    border-left-color: var(--accent-color);
 }
 
 .skill-category h3 {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     color: var(--primary-color);
-    margin-bottom: 1rem;
-    position: relative;
-    padding-bottom: 0.5rem;
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 600;
 }
 
-.skill-category h3::after {
+.skill-category h3::before {
     content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 40px;
-    height: 3px;
-    background-color: var(--accent-color);
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: var(--secondary-color);
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(26, 188, 156, 0.2);
 }
 
 .skills-list {
     list-style: none;
     padding: 0;
     margin: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
 }
 
 .skills-list li {
-    margin-bottom: 0.75rem;
     display: flex;
     align-items: center;
-    font-size: 1rem;
+    font-size: 0.95rem;
+    color: var(--text-color);
+    padding: 0.5rem;
+    border-radius: 6px;
+    transition: var(--transition);
+}
+
+.skills-list li:hover {
+    background-color: rgba(26, 188, 156, 0.05);
+    transform: translateX(3px);
 }
 
 .skills-list li i {
-    color: var(--accent-color);
+    color: var(--secondary-color);
     margin-right: 0.75rem;
-    font-size: 1rem;
+    font-size: 0.9rem;
+    min-width: 16px;
 }
 
 .skill-item {
@@ -1472,9 +1495,11 @@ textarea.form-control {
 
 .stats-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
     text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 .stat-item {
@@ -1981,9 +2006,22 @@ button:hover ~ .cursor-outline {
 }
 
 /* Skills section updates for radar chart */
+@media screen and (max-width: 1200px) {
+    .skills-container {
+        grid-template-columns: 350px 1fr;
+        gap: 3rem;
+    }
+}
+
 @media screen and (max-width: 992px) {
     .skills-container {
         grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .skills-chart-container {
+        position: relative;
+        top: 0;
     }
     
     .skills-chart {
@@ -1994,6 +2032,292 @@ button:hover ~ .cursor-outline {
 
 @media screen and (max-width: 768px) {
     .skills-categories {
+        grid-template-columns: 1fr;
+    }
+    
+    .skills-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .skills-chart-container {
+        padding: 2rem;
+    }
+}
+
+/* Certifications Section */
+.certifications {
+    position: relative;
+    overflow: hidden;
+}
+
+.certifications-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.cert-card {
+    background-color: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 2rem;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+    text-align: center;
+    border-top: 4px solid var(--secondary-color);
+}
+
+.cert-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+    border-top-color: var(--accent-color);
+}
+
+.cert-icon {
+    font-size: 3rem;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+    transition: var(--transition);
+}
+
+.cert-card:hover .cert-icon {
+    color: var(--accent-color);
+    transform: scale(1.1);
+}
+
+.cert-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+    min-height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cert-issuer {
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.cert-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.cert-tag {
+    padding: 4px 12px;
+    background-color: rgba(26, 188, 156, 0.1);
+    border-radius: 20px;
+    font-size: 0.75rem;
+    color: var(--secondary-color);
+    border: 1px solid rgba(26, 188, 156, 0.3);
+}
+
+.certifications .shape-circle {
+    top: 15%;
+    right: -150px;
+}
+
+.certifications .shape-rectangle {
+    bottom: 20%;
+    left: -200px;
+    transform: rotate(-20deg);
+}
+
+/* Project Modal */
+.project-modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-content-wrapper {
+    background-color: var(--background-color);
+    margin: 2% auto;
+    padding: 0;
+    width: 90%;
+    max-width: 1000px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    max-height: 90vh;
+    overflow-y: auto;
+    animation: slideDown 0.4s ease;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal-close {
+    position: sticky;
+    top: 0;
+    right: 0;
+    float: right;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    cursor: pointer;
+    padding: 1rem 1.5rem;
+    background: var(--background-color);
+    z-index: 10;
+    border-radius: 0 var(--radius-lg) 0 0;
+    transition: var(--transition);
+}
+
+.modal-close:hover,
+.modal-close:focus {
+    color: var(--accent-color);
+    transform: rotate(90deg);
+}
+
+.modal-project-content {
+    padding: 2rem 3rem 3rem;
+}
+
+.modal-project-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    clear: both;
+}
+
+.modal-project-meta {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.modal-project-date,
+.modal-project-role {
+    font-size: 1rem;
+    color: var(--secondary-color);
+    font-weight: 500;
+}
+
+.modal-project-date::before {
+    content: "📅 ";
+}
+
+.modal-project-role::before {
+    content: "👤 ";
+}
+
+.modal-project-body {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.modal-section {
+    background-color: var(--secondary-bg);
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    border-left: 4px solid var(--secondary-color);
+}
+
+.modal-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.modal-section h3 i {
+    color: var(--secondary-color);
+}
+
+.modal-challenge ul,
+.modal-implementation ul,
+.modal-impact ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.modal-challenge li,
+.modal-implementation li,
+.modal-impact li {
+    margin-bottom: 0.75rem;
+    padding-left: 1.5rem;
+    position: relative;
+    line-height: 1.6;
+}
+
+.modal-challenge li::before,
+.modal-implementation li::before,
+.modal-impact li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--secondary-color);
+    font-weight: bold;
+}
+
+.modal-tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.modal-tech-tags .tech-tag {
+    padding: 8px 16px;
+    background: var(--gradient-primary);
+    color: white;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+.modal-tech-tags .tech-tag:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+@media screen and (max-width: 768px) {
+    .modal-content-wrapper {
+        width: 95%;
+        margin: 5% auto;
+    }
+    
+    .modal-project-content {
+        padding: 1.5rem;
+    }
+    
+    .modal-project-title {
+        font-size: 1.8rem;
+    }
+    
+    .modal-project-meta {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .certifications-grid {
         grid-template-columns: 1fr;
     }
 } 

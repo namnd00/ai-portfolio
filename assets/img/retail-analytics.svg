@@ -1,0 +1,23 @@
+<svg width="1920" height="1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#059669;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#10b981;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#grad5)"/>
+  <rect x="460" y="200" width="400" height="300" rx="10" fill="rgba(255,255,255,0.2)" stroke="rgba(255,255,255,0.4)" stroke-width="3"/>
+  <circle cx="660" cy="250" r="30" fill="rgba(255,255,255,0.3)" stroke="white" stroke-width="2"/>
+  <path d="M 650 240 L 670 260 M 670 240 L 650 260" stroke="white" stroke-width="3"/>
+  <rect x="500" y="320" width="120" height="150" rx="5" fill="rgba(255,255,255,0.25)"/>
+  <rect x="640" y="340" width="180" height="50" rx="5" fill="rgba(255,255,255,0.25)"/>
+  <rect x="640" y="410" width="180" height="50" rx="5" fill="rgba(255,255,255,0.25)"/>
+  <rect x="1060" y="200" width="400" height="300" rx="10" fill="rgba(255,255,255,0.2)" stroke="rgba(255,255,255,0.4)" stroke-width="3"/>
+  <rect x="1100" y="240" width="320" height="40" rx="5" fill="rgba(255,255,255,0.3)"/>
+  <rect x="1100" y="300" width="200" height="30" rx="5" fill="rgba(255,255,255,0.25)"/>
+  <rect x="1100" y="350" width="280" height="30" rx="5" fill="rgba(255,255,255,0.25)"/>
+  <rect x="1100" y="400" width="240" height="30" rx="5" fill="rgba(255,255,255,0.25)"/>
+  <rect x="1100" y="450" width="180" height="30" rx="5" fill="rgba(255,255,255,0.25)"/>
+  <text x="960" y="650" font-family="Arial, sans-serif" font-size="48" fill="white" text-anchor="middle" font-weight="bold">Smart Retail Analytics</text>
+  <text x="960" y="720" font-family="Arial, sans-serif" font-size="32" fill="rgba(255,255,255,0.8)" text-anchor="middle">Computer Vision • Multi-Camera • Analytics</text>
+</svg>
