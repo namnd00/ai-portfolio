@@ -6,6 +6,7 @@ const navLinks = document.querySelectorAll('.nav-link');
 hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('active');
     navMenu.classList.toggle('active');
+    hamburger.setAttribute('aria-expanded', navMenu.classList.contains('active') ? 'true' : 'false');
     document.body.classList.toggle('no-scroll');
 });
 
@@ -14,6 +15,7 @@ navLinks.forEach(link => {
     link.addEventListener('click', () => {
         hamburger.classList.remove('active');
         navMenu.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', 'false');
         document.body.classList.remove('no-scroll');
     });
 });

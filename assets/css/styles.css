@@ -2321,3 +2321,228 @@ button:hover ~ .cursor-outline {
         grid-template-columns: 1fr;
     }
 } 
+
+/* ==========================================================================
+   Mobile fixes (2026-11): the older rules above targeted .nav-links/.bar,
+   which the markup does not use, and kept the 2-column timeline on phones.
+   ========================================================================== */
+.hamburger {
+    background: none;
+    border: 0;
+    padding: 0.5rem;
+    margin-right: -0.5rem;
+}
+
+.hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    margin: 5px 0;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+    transition: var(--transition);
+}
+
+body.no-scroll {
+    overflow: hidden;
+}
+
+/* Touch screens have no mouse: hide the custom cursor */
+@media (hover: none) {
+    .cursor-dot,
+    .cursor-outline {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .hero {
+        height: auto;
+        min-height: 100vh;
+        min-height: 100svh;
+        padding: 7rem 0 4rem;
+    }
+
+    .hero-content {
+        flex: none;
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .hamburger.active span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .nav-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background-color: #fff;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+        padding: 0.5rem 0 1rem;
+        transform: translateY(-8px);
+        opacity: 0;
+        visibility: hidden;
+        transition: var(--transition);
+    }
+
+    .nav-menu.active {
+        transform: none;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .nav-link {
+        display: block;
+        margin: 0;
+        padding: 0.75rem 1.5rem;
+        text-align: center;
+    }
+
+    .hero-buttons {
+        flex-wrap: wrap;
+    }
+
+    .about-content {
+        gap: 2rem;
+    }
+
+    /* Timeline: one column, line and dots on the left */
+    .timeline::after {
+        left: 10px;
+        transform: none;
+    }
+
+    .timeline-item,
+    .timeline-item:nth-child(even) {
+        width: 100%;
+        left: 0;
+        padding: 1rem 0 1rem 2.25rem;
+    }
+
+    .timeline-content,
+    .timeline-item:nth-child(even) .timeline-content {
+        margin: 0;
+        padding: 1.5rem 1.25rem;
+    }
+
+    .timeline-content ul {
+        padding-left: 1.1rem;
+    }
+
+    .timeline-item::after,
+    .timeline-item:nth-child(even)::after {
+        left: 1px;
+        right: auto;
+        top: 2.75rem;
+        transform: none;
+    }
+
+    .skills-container,
+    .skills-chart-container,
+    .skills-categories,
+    .skill-category {
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    .skills-chart-container {
+        padding: 1.25rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .hero h1 {
+        font-size: 2.4rem;
+    }
+
+    .hero p {
+        font-size: 1.1rem;
+    }
+
+    .hero-buttons .btn {
+        flex: 1 1 100%;
+        text-align: center;
+    }
+}
+
+/* Process steps: icon left, title + text right (was a squeezed 3-column row) */
+@media screen and (max-width: 992px) {
+    .process-steps {
+        gap: 2rem;
+    }
+
+    .process-step {
+        display: grid;
+        grid-template-columns: 64px 1fr;
+        column-gap: 1.25rem;
+        align-items: start;
+    }
+
+    .step-number {
+        grid-row: span 2;
+        width: 64px;
+        height: 64px;
+        margin-bottom: 0;
+    }
+
+    .step-number i {
+        font-size: 1.5rem;
+    }
+
+    .step-title {
+        margin: 0.25rem 0 0.25rem;
+    }
+}
+
+/* Accessibility: darker accent for small text (WCAG AA contrast), bigger footer icons */
+:root {
+    --secondary-text: #0f7a64;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background-color: var(--secondary-text);
+    border-color: var(--secondary-text);
+}
+
+.project-tag,
+.project-link,
+.timeline-date,
+.small-title,
+.award-year,
+.stat-label,
+.cert-issuer,
+.cert-tag {
+    color: var(--secondary-text);
+}
+
+.footer-social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 32px;
+    min-height: 32px;
+}
+
+@media screen and (max-width: 420px) {
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+}
